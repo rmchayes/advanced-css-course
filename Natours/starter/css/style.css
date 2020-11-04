@@ -30,7 +30,7 @@ body {
   background-image: linear-gradient(
       to right bottom,
       rgba(126, 213, 111, 0.2),
-      rgba(40, 180, 131, 0.35)
+      rgba(40, 180, 131, 0.5)
     ),
     url(../img/hero.jpg);
   background-size: cover;
@@ -50,6 +50,10 @@ body {
   /* width automatically calculated */
 }
 
+/* .logo-box:hover .logo {
+    animation: moveInRight 1s ease-in;
+} */
+
 .text-box {
   position: absolute;
   /* top and left relative to parent element (header) */
@@ -62,14 +66,21 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+  backface-visibility: hidden; /* fix text shake bug?! */
 }
 
 /* inherits from heading-primary */
 .heading-primary-main {
   display: block;
   font-size: 60px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-delay: 0s; /* delay before starting animation */
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
 }
 
 /* inherits from heading-primary */
@@ -78,4 +89,49 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 18.4px;
+
+  animation-name: moveInRight;
+  animation-delay: 0s; /* delay before starting animation */
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+
+/* animations */
+/* moveInLeft is name of animation, not a keyword */
+/* for performance reasons try to just change opacity and transform  */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* animations */
+/* moveInRight is name of animation, not a keyword */
+/* for performance reasons try to just change opacity and transform  */
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+      opacity: 0.30;
+    transform: translateX(-5px);
+  }
+  90% {
+    opacity: 0.40;
+  transform: translateX(-5px);
+}
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
