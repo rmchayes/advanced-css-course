@@ -7,22 +7,37 @@ Dark green: #28b485
 
 */
 
+/* : pseudo class, :: pseudo element */
+
 /* universal selector, apply to all elements on page */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit; /* best practice */
 }
 
-/* body selector */
+/* rems not supported below IE9 */
+html {
+  /* default browser font size is 16px */
+  /* therefore font-size 100% is 16px */
+  /* but we want root font size for this page to be 16px, we want 10px */
+  /* therefore 10/16 = 0.625 and our font size should be 62.5% of the */
+  /* default browser font size. */
+  font-size: 62.5%; /* 1 rem is the root font size of 10px */
+}
+
+/* body element selector */
 body {
   /* inherited by all child elements in the body. Don't put in universal selctor */
   font-family: "Lato", sans-serif; /* Lato google font, else sans-serif */
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
 .header {
@@ -39,14 +54,14 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
-  top: 40px; /* top and left relative to parent element (header) See html*/
-  left: 40px;
+  top: 4rem; /* top and left relative to parent element (header) See html*/
+  left: 4rem;
 }
 
-.logo {
-  height: 35px;
+.header__logo {
+  height: 3.5rem;
   /* width automatically calculated */
 }
 
@@ -54,7 +69,7 @@ body {
     animation: moveInRight 1s ease-in;
 } */
 
-.text-box {
+.header__text-box {
   position: absolute;
   /* top and left relative to parent element (header) */
   top: 50%;
@@ -68,15 +83,15 @@ body {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden; /* fix text shake bug?! */
-  margin-bottom: 60px; /* helps move down btn */
+  margin-bottom: 6rem; /* helps move down btn */
 }
 
 /* inherits from heading-primary */
-.heading-primary-main {
+.heading-primary--main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   animation-name: moveInLeft;
   animation-delay: 0s; /* delay before starting animation */
@@ -86,11 +101,11 @@ body {
 }
 
 /* inherits from heading-primary */
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 18.4px;
+  letter-spacing: 1.8rem;
 
   animation-name: moveInRight;
   animation-delay: 0s; /* delay before starting animation */
@@ -105,10 +120,10 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-400px);
+    transform: translateX(-40rem);
   }
   80% {
-    transform: translateX(5px);
+    transform: translateX(0.5rem);
   }
   100% {
     opacity: 1;
@@ -122,7 +137,7 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(400px);
+    transform: translateX(40rem);
   }
   /* 80% {
     opacity: 0.3;
@@ -144,7 +159,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(+300px);
+    transform: translateY(+30rem);
   }
   /* 80% {
       transform: translateY(-5px);
@@ -170,18 +185,19 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none; /* get rid of default link underline */
-  padding: 15px 40px; /* top bottom 15px, left right 40px */
-  padding: 15px 40px 15px 40px; /* alternatively top right bottom left */
+  padding: 1.5rem 4rem; /* top bottom 15px, left right 40px */
+  /*padding: 15px 40px 15px 40px; alternatively top right bottom left */
   display: inline; /* inline is default */
   display: inline-block; /* use inline-block instead */
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* x, y, blur, shadow */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4); /* x, y, blur, shadow */
 }
 
 .btn:hover::after {
@@ -193,20 +209,20 @@ body {
 .btn:active {
   /* -1 relative to the btn:link state, not btn:hover */
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); /* x, y, blur, shadow */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4); /* x, y, blur, shadow */
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
 
 /* after pseudo element */
-.btn-white::after {
+.btn--white::after {
   background-color: white;
 }
 
-.btn-animated {
+.btn--animated {
   animation-name: moveInBottom, fadeIn;
   animation-duration: 1s, 3s;
   animation-fill-mode: backwards, backwards;
@@ -219,7 +235,7 @@ body {
   display: inline-block; /* should be same as btn:link*/
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* abolute positioning needs to have a reference. That reference is the first relative element it can find. In this case it would be the header (see html for hierarchy) but we don't want it to be the header. We want it to be hidden after the button, so the reference should be the button. Therefore we have to set the position property of the button to relative. (see btn:link) */
 
   position: absolute;
