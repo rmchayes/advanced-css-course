@@ -1,0 +1,73 @@
+/* pseudo class "link" is a special state of a selector */
+.btn {
+    &:link,
+    &btn:visited {
+      text-transform: uppercase;
+      text-decoration: none; /* get rid of default link underline */
+      padding: 1.5rem 4rem; /* top bottom 15px, left right 40px */
+      /*padding: 15px 40px 15px 40px; alternatively top right bottom left */
+      display: inline-block; /* use inline-block instead */
+      border-radius: 10rem;
+      transition: all 0.2s;
+      position: relative;
+      font-size: 1.6rem;
+      border: none;
+      cursor: pointer;
+    }
+  
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba($color-box-shadow, 0.7);
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+  
+  
+  
+    /* btn clicked */
+    //   &:active {
+    //     /* -1 relative to the btn:link state, not btn:hover */
+    //     transform: translateY(-1px);
+    //     box-shadow: 0 5px 10px 1px ($color-black); /* x, y, blur, shadow */
+    //   }
+  
+    &:active {
+      outline: none;
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.7);
+    }
+  
+    &--white {
+      background-color: $color-white;
+      color: $color-grey-dark;
+        /* create "splash" effect */
+      &::after {
+        background-color: $color-white;
+      }
+    }
+  
+  
+  
+    /* after pseudo element */
+    &::after {
+      content: ""; /* must always include content keyword, even if empty */
+      display: inline-block; /* should be same as btn:link*/
+      height: 100%;
+      width: 100%;
+      border-radius: 10rem;
+      /* abolute positioning needs to have a reference. That reference is the first relative element it can find. In this case it would be the header (see html for hierarchy) but we don't want it to be the header. We want it to be hidden after the button, so the reference should be the button. Therefore we have to set the position property of the button to relative. (see btn:link) */
+  
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1; /* depth of elements, negative is lower in the layer */
+      transition: all 0.4s;
+      animation-name: moveInBottom, fadeIn;
+      animation-duration: 2s, 3s;
+      animation-fill-mode: backwards, backwards;
+   //   animation-timing-function: ease-out;
+    //  animation: moveInBottom 0.5s ease-out 0.75s;
+      animation-fill-mode: backwards;
+  }

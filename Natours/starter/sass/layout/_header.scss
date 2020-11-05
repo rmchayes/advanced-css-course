@@ -1,0 +1,37 @@
+.header {
+    height: 95vh; /* 95% of the viewport */
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.0),
+        rgba($color-primary-dark, 1)
+      ), url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  
+    &__logo-box {
+      position: absolute;
+      top: 4rem; /* top and left relative to parent element (header) See html*/
+      left: 4rem;
+    }
+  
+    &__logo {
+      height: 3.5rem;
+      /* width automatically calculated */
+    }
+  
+    // .logo-box:hover .logo {
+    //     animation: moveInRight 1s ease-in;
+    // }
+  
+    &__text-box {
+      position: absolute;
+      /* top and left relative to parent element (header) */
+      top: 40%;
+      left: 50%;
+      /* centre the heading box, relative to element itself, not parent*/
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  }

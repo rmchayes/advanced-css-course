@@ -1,0 +1,26 @@
+/* remember.....   : pseudo class, :: pseudo element */
+
+/* universal selector, apply to all elements on page */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* best practice */
+}
+
+/* rems not supported below IE9 */
+html {
+  /* default browser font size is 16px */
+  /* therefore font-size 100% is 16px */
+  /* but we want root font size for this page to be 16px, we want 10px */
+  /* therefore 10/16 = 0.625 and our font size should be 62.5% of the */
+  /* default browser font size. */
+  font-size: 62.5%; /* 1 rem is the root font size of 10px */
+}
+
+/* body element selector. rest of body is in typography */
+/* defines what 1 rem is... */
+body {
+    box-sizing: border-box;
+}

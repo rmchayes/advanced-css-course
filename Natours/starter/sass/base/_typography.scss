@@ -1,0 +1,51 @@
+
+/* body element selector */
+body {
+    /* inherited by all child elements in the body. Don't put in universal selctor */
+    font-family: "Lato", sans-serif; /* Lato google font, else sans-serif */
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 3rem;
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden; /* fix text shake bug?! */
+    margin-bottom: 6rem; /* helps move down btn */
+  
+    /* inherits from heading-primary */
+    &--main {
+      display: block;
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 3.5rem;
+  
+      animation-name: moveInLeft;
+      animation-delay: 0s; /* delay before starting animation */
+      animation-duration: 2s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in;
+  
+    }
+  
+    /* inherits from heading-primary */
+    &--sub {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1.8rem;
+  
+      animation-name: moveInRight;
+      animation-delay: 0s; /* delay before starting animation */
+      animation-duration: 2s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in;
+    }
+  }
+  
+  
+  
+  

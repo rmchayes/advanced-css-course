@@ -1,0 +1,62 @@
+/* animations */
+/* moveInLeft is name of animation, not a keyword */
+/* for performance reasons try to just change opacity and transform  */
+@keyframes moveInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50rem);
+    }
+    80% {
+      transform: translateX(1rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+  
+  /* animations */
+  /* moveInRight is name of animation, not a keyword */
+  /* for performance reasons try to just change opacity and transform  */
+  @keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(50rem);
+    }
+    80% {
+      opacity: 0.3;
+      transform: translateX(-1rem);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+  
+  /* animations */
+  /* moveInBottom is name of animation, not a keyword */
+  /* for performance reasons try to just change opacity and transform  */
+  
+  @keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(-20rem);
+    }
+  
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
