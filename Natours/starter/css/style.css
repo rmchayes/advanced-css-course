@@ -39,7 +39,7 @@ body {
 .header {
   height: 95vh;
   /* 95% of the viewport */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.9)), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(8, 92, 247, 0), rgba(3, 12, 90, 0.9)), url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
@@ -78,7 +78,7 @@ body {
     animation-name: moveInLeft;
     animation-delay: 0s;
     /* delay before starting animation */
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in; }
   .heading-primary--sub {
@@ -89,7 +89,7 @@ body {
     animation-name: moveInRight;
     animation-delay: 0s;
     /* delay before starting animation */
-    animation-duration: 0.8s;
+    animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in; }
 
@@ -99,7 +99,7 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10rem); }
+    transform: translateX(-50rem); }
   80% {
     transform: translateX(1rem); }
   100% {
@@ -112,7 +112,7 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(10rem); }
+    transform: translateX(50rem); }
   80% {
     opacity: 0.3;
     transform: translateX(-1rem); }
@@ -126,10 +126,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(0rem); }
-  /* 80% {
-      transform: translateY(-5px);
-    } */
+    transform: translateY(-20rem); }
   100% {
     opacity: 1;
     transform: translate(0); } }
@@ -143,8 +140,12 @@ body {
 /* pseudo class "link" is a special state of a selector */
 .btn {
   /* btn clicked */
+  /* create "splash" effect */
   /* after pseudo element */
-  /* after pseudo element */ }
+  animation-name: moveInBottom, fadeIn;
+  animation-duration: 2s, 3s;
+  animation-fill-mode: backwards, backwards;
+  animation-fill-mode: backwards; }
   .btn:link, .btnbtn:visited {
     text-transform: uppercase;
     text-decoration: none;
@@ -162,17 +163,19 @@ body {
     cursor: pointer; }
   .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    box-shadow: 0 1rem 2rem rgba(9, 1, 29, 0.7); }
   .btn:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0; }
   .btn:active {
     outline: none;
     transform: translateY(-1px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7); }
   .btn--white {
     background-color: #fff;
     color: #777; }
+  .btn::after {
+    background-color: #fff; }
   .btn::after {
     content: "";
     /* must always include content keyword, even if empty */
@@ -188,6 +191,3 @@ body {
     z-index: -1;
     /* depth of elements, negative is lower in the layer */
     transition: all 0.4s; }
-  .btn--animated {
-    animation: moveInBottom 0.5s ease-out 0.75s;
-    animation-fill-mode: backwards; }
