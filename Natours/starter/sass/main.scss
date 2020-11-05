@@ -18,9 +18,7 @@ $color-box-shadow: rgb(17, 51, 3);
 /* remember.....   : pseudo class, :: pseudo element */
 
 /* universal selector, apply to all elements on page */
-*,
-*::after,
-*::before {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* best practice */
@@ -72,9 +70,9 @@ body {
     /* width automatically calculated */
   }
 
-  /* .logo-box:hover .logo {
-      animation: moveInRight 1s ease-in;
-  } */
+  // .logo-box:hover .logo {
+  //     animation: moveInRight 1s ease-in;
+  // }
 
   &__text-box {
     position: absolute;
@@ -164,7 +162,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(3rem);
+    transform: translateY(0rem);
   }
   /* 80% {
       transform: translateY(-5px);
@@ -195,7 +193,7 @@ body {
     /*padding: 15px 40px 15px 40px; alternatively top right bottom left */
     display: inline-block; /* use inline-block instead */
     border-radius: 10rem;
-    transition: all .2s;
+    transition: all 0.2s;
     position: relative;
     font-size: 1.6rem;
     border: none;
@@ -204,8 +202,8 @@ body {
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba($color-black,.2);
-}
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  }
 
   &:hover::after {
     transform: scaleX(1.4) scaleY(1.6);
@@ -213,29 +211,27 @@ body {
   }
 
   /* btn clicked */
-//   &:active {
-//     /* -1 relative to the btn:link state, not btn:hover */
-//     transform: translateY(-1px);
-//     box-shadow: 0 5px 10px 1px ($color-black); /* x, y, blur, shadow */
-//   }
+  //   &:active {
+  //     /* -1 relative to the btn:link state, not btn:hover */
+  //     transform: translateY(-1px);
+  //     box-shadow: 0 5px 10px 1px ($color-black); /* x, y, blur, shadow */
+  //   }
 
-&:active,
-&:focus {
+  &:active {
     outline: none;
     transform: translateY(-1px);
-    box-shadow: 0 .5rem 1rem rgba($color-black,.2);
-}
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
   &--white {
     background-color: $color-white;
     color: $color-grey-dark;
-  
-
-  /* after pseudo element */
-  &::after {
-    background-color: $color-white;
   }
 
+  /* after pseudo element */
+  // &::after {
+  //   background-color: $color-white;
+  // }
 
   /* after pseudo element */
   &::after {
@@ -251,14 +247,14 @@ body {
     left: 0;
     z-index: -1; /* depth of elements, negative is lower in the layer */
     transition: all 0.4s;
-    
+  }
+
   &--animated {
     // animation-name: moveInBottom, fadeIn;
     // animation-duration: 1s, 3s;
     // animation-fill-mode: backwards, backwards;
     // animation-timing-function: ease-out;
-    animation: moveInBottom .5s ease-out .75s;
+    animation: moveInBottom 0.5s ease-out 0.75s;
     animation-fill-mode: backwards;
-  }
   }
 }
