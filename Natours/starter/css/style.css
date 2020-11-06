@@ -212,10 +212,14 @@ body {
 .row {
   /* means that if we have enough available width in the viewport then it will have the width that we specified 114rem. if there's not enough width (ie: the viewport is smaller than 114rem) then it will simply fill 100% of the space available. */
   max-width: 114rem;
-  background-color: #fff;
+  background-color: #ccc;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
   .row .col-1-of-2 {
     width: calc((100% - 6rem) / 2);
     background-color: orangered;
