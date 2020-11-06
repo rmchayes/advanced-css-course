@@ -1,5 +1,6 @@
 /* pseudo class "link" is a special state of a selector */
 .btn {
+    &,
     &:link,
     &btn:visited {
       text-transform: uppercase;
@@ -17,22 +18,14 @@
   
     &:hover {
       transform: translateY(-3px);
-      box-shadow: 0 1rem 2rem rgba($color-box-shadow, 0.7);
+      box-shadow: 0 1rem 2rem rgba($color-primary-dark, 0.7);
       &::after {
         transform: scaleX(1.4) scaleY(1.6);
         opacity: 0;
       }
     }
   
-  
-  
-    /* btn clicked */
-    //   &:active {
-    //     /* -1 relative to the btn:link state, not btn:hover */
-    //     transform: translateY(-1px);
-    //     box-shadow: 0 5px 10px 1px ($color-black); /* x, y, blur, shadow */
-    //   }
-  
+ 
     &:active {
       outline: none;
       transform: translateY(-1px);
@@ -46,6 +39,7 @@
       &::after {
         background-color: $color-white;
       }
+      
     }
   
   
@@ -64,10 +58,34 @@
       left: 0;
       z-index: -1; /* depth of elements, negative is lower in the layer */
       transition: all 0.4s;
-      animation-name: moveInBottom, fadeIn;
-      animation-duration: 2s, 3s;
-      animation-fill-mode: backwards, backwards;
-   //   animation-timing-function: ease-out;
-    //  animation: moveInBottom 0.5s ease-out 0.75s;
+    }    
+    &--animated {
+      animation: moveInBottom .5s ease-out .75s;
       animation-fill-mode: backwards;
   }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+      font-size: $default-font-size;
+      color: $color-primary;
+      display: inline-block;
+      text-decoration: none;
+      border-bottom: 1px solid $color-primary;
+      padding: 3px;
+      transition: all .2s;
+  }
+
+  &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+      box-shadow: 0 1rem 2rem rgba($color-black, .15);
+      transform: translateY(-2px);
+  }
+
+  &:active {
+      box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+      transform: translateY(0);
+  }
+}

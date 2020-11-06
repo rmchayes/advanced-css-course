@@ -1,98 +1,3 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-/* remember.....   : pseudo class, :: pseudo element */
-/* universal selector, apply to all elements on page */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* best practice */ }
-
-/* rems not supported below IE9 */
-html {
-  /* default browser font size is 16px */
-  /* therefore font-size 100% is 16px */
-  /* but we want root font size for this page to be 16px, we want 10px */
-  /* therefore 10/16 = 0.625 and our font size should be 62.5% of the */
-  /* default browser font size. */
-  font-size: 62.5%;
-  /* 1 rem is the root font size of 10px */ }
-
-/* body element selector */
-body {
-  /* inherited by all child elements in the body. Don't put in universal selctor */
-  font-family: "Lato", sans-serif;
-  /* Lato google font, else sans-serif */
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  /* 95% of the viewport */
-  background-image: linear-gradient(to right bottom, rgba(8, 92, 247, 0), rgba(3, 12, 90, 0.9)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    /* top and left relative to parent element (header) See html*/
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem;
-    /* width automatically calculated */ }
-  .header__text-box {
-    position: absolute;
-    /* top and left relative to parent element (header) */
-    top: 40%;
-    left: 50%;
-    /* centre the heading box, relative to element itself, not parent*/
-    transform: translate(-50%, -50%);
-    text-align: center; }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  /* fix text shake bug?! */
-  margin-bottom: 6rem;
-  /* helps move down btn */
-  /* inherits from heading-primary */
-  /* inherits from heading-primary */ }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-delay: 0s;
-    /* delay before starting animation */
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in; }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.8rem;
-    animation-name: moveInRight;
-    animation-delay: 0s;
-    /* delay before starting animation */
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in; }
-
 /* animations */
 /* moveInLeft is name of animation, not a keyword */
 /* for performance reasons try to just change opacity and transform  */
@@ -137,16 +42,78 @@ body {
   100% {
     opacity: 1; } }
 
+/* remember.....   : pseudo class, :: pseudo element */
+/* universal selector, apply to all elements on page */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* best practice */ }
+
+/* rems not supported below IE9 */
+html {
+  /* default browser font size is 16px */
+  /* therefore font-size 100% is 16px */
+  /* but we want root font size for this page to be 16px, we want 10px */
+  /* therefore 10/16 = 0.625 and our font size should be 62.5% of the */
+  /* default browser font size. */
+  font-size: 62.5%;
+  /* 1 rem is the root font size of 10px */ }
+
+/* body element selector. rest of body is in typography */
+/* defines what 1 rem is... */
+body {
+  box-sizing: border-box; }
+
+/* body element selector */
+body {
+  /* inherited by all child elements in the body. Don't put in universal selctor */
+  font-family: "Lato", sans-serif;
+  /* Lato google font, else sans-serif */
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* fix text shake bug?! */
+  margin-bottom: 6rem;
+  /* helps move down btn */
+  /* inherits from heading-primary */
+  /* inherits from heading-primary */ }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-delay: 0s;
+    /* delay before starting animation */
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.8rem;
+    animation-name: moveInRight;
+    animation-delay: 0s;
+    /* delay before starting animation */
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in; }
+
 /* pseudo class "link" is a special state of a selector */
 .btn {
-  /* btn clicked */
-  /* create "splash" effect */
-  /* after pseudo element */
-  animation-name: moveInBottom, fadeIn;
-  animation-duration: 2s, 3s;
-  animation-fill-mode: backwards, backwards;
-  animation-fill-mode: backwards; }
-  .btn:link, .btnbtn:visited {
+  /* after pseudo element */ }
+  .btn, .btn:link, .btnbtn:visited {
     text-transform: uppercase;
     text-decoration: none;
     /* get rid of default link underline */
@@ -163,19 +130,20 @@ body {
     cursor: pointer; }
   .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(9, 1, 29, 0.7); }
-  .btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0; }
+    box-shadow: 0 1rem 2rem rgba(40, 180, 133, 0.7); }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
   .btn:active {
     outline: none;
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7); }
   .btn--white {
     background-color: #fff;
-    color: #777; }
-  .btn::after {
-    background-color: #fff; }
+    color: #777;
+    /* create "splash" effect */ }
+    .btn--white::after {
+      background-color: #fff; }
   .btn::after {
     content: "";
     /* must always include content keyword, even if empty */
@@ -191,3 +159,50 @@ body {
     z-index: -1;
     /* depth of elements, negative is lower in the layer */
     transition: all 0.4s; }
+  .btn--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards; }
+
+.btn-text:link, .btn-text:visited {
+  font-size: 1.6rem;
+  color: #55c57a;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #55c57a;
+  padding: 3px;
+  transition: all .2s; }
+
+.btn-text:hover {
+  background-color: #55c57a;
+  color: #fff;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px); }
+
+.btn-text:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(0); }
+
+.header {
+  height: 95vh;
+  /* 95% of the viewport */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0), #28b485), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    /* top and left relative to parent element (header) See html*/
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem;
+    /* width automatically calculated */ }
+  .header__text-box {
+    position: absolute;
+    /* top and left relative to parent element (header) */
+    top: 40%;
+    left: 50%;
+    /* centre the heading box, relative to element itself, not parent*/
+    transform: translate(-50%, -50%);
+    text-align: center; }
