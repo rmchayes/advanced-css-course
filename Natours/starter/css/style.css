@@ -32,6 +32,8 @@
   0% {
     opacity: 0;
     transform: translateY(-20rem); }
+  90% {
+    transform: translateY(1rem); }
   100% {
     opacity: 1;
     transform: translate(0); } }
@@ -130,7 +132,7 @@ body {
     cursor: pointer; }
   .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(40, 180, 133, 0.7); }
+    box-shadow: 0 1rem 2rem rgba(34, 8, 124, 0.7); }
     .btn:hover::after {
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0; }
@@ -160,7 +162,7 @@ body {
     /* depth of elements, negative is lower in the layer */
     transition: all 0.4s; }
   .btn--animated {
-    animation: moveInBottom .5s ease-out .75s;
+    animation: moveInBottom .65s ease-in 2s;
     animation-fill-mode: backwards; }
 
 .btn-text:link, .btn-text:visited {
@@ -185,7 +187,7 @@ body {
 .header {
   height: 95vh;
   /* 95% of the viewport */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0), #28b485), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(111, 206, 213, 0), #22087c), url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
   position: relative;

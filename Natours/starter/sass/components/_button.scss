@@ -39,7 +39,7 @@
       &::after {
         background-color: $color-white;
       }
-      
+
     }
   
   
@@ -60,7 +60,7 @@
       transition: all 0.4s;
     }    
     &--animated {
-      animation: moveInBottom .5s ease-out .75s;
+      animation: moveInBottom .65s ease-in 2s;
       animation-fill-mode: backwards;
   }
 }
