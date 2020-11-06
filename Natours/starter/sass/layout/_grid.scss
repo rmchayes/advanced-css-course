@@ -1,0 +1,21 @@
+.row {
+    /* means that if we have enough available width in the viewport then it will have the width that we specified 114rem. if there's not enough width (ie: the viewport is smaller than 114rem) then it will simply fill 100% of the space available. */
+    max-width: $grid-width;
+
+    background-color: #fff;
+    margin: 0 auto; //center block within another block. bottom top is 0, left right is auto
+    &:not(:last-child) { // ignore gutter on last row of grid
+        margin-bottom: $gutter-vertical;
+    }
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+        background-color: orangered;
+        float: left;
+
+        &:not(:last-child) { 
+            margin-right: $gutter-horizontal;
+        } 
+    }
+
+}
