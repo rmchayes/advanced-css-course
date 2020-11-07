@@ -2,7 +2,6 @@
     /* means that if we have enough available width in the viewport then it will have the width that we specified 114rem. if there's not enough width (ie: the viewport is smaller than 114rem) then it will simply fill 100% of the space available. */
     max-width: $grid-width;
 
-    background-color: #ccc;
     margin: 0 auto; // center block within another block. bottom top is 0, left right is auto
     &:not(:last-child) { // ignore gutter on last row of grid
         margin-bottom: $gutter-vertical;
@@ -12,7 +11,6 @@
 
     // format all columns in the grid
     [class^="col-"] { // similar to regex, select class attributes starting with col-
-        background-color: orangered;
         float: left;
 
         &:not(:last-child) { 
